@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PremiumRules>
+  <BasePremium> 
+    <SingleTrip>20.00</SingleTrip>
+    <Annual>80.00</Annual>
+  </BasePremium>
+  <PremiumRule>
+    <!--Age-->
+    <PremiumBasis Min ="0" Max ="18">Age</PremiumBasis>
+    <Rating>1.2</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Min ="19" Max ="45">Age</PremiumBasis>
+    <Rating>1.0</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Min ="46" Max ="55">Age</PremiumBasis>
+    <Rating>1.2</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Min ="56" Max ="65">Age</PremiumBasis>
+    <Rating>1.8</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Min ="66" Max ="70">Age</PremiumBasis>
+    <Rating>1.2</Rating>
+  </PremiumRule>
+  
+  <!--Sex-->
+  <PremiumRule>
+    <PremiumBasis Type ="Male">Sex</PremiumBasis>
+    <Rating>1.2</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Type ="Female">Sex</PremiumBasis>
+    <Rating>0.9</Rating>
+  </PremiumRule>
+  <!--Destination-->
+  <PremiumRule>
+    <PremiumBasis Type ="UK">Destination</PremiumBasis>
+    <Rating>0.6</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Type ="Europe">Destination</PremiumBasis>
+    <Rating>1.0</Rating>
+  </PremiumRule>  
+  <PremiumRule>
+    <PremiumBasis Type ="Worldwide">Destination</PremiumBasis>
+    <Rating>1.4</Rating>
+  </PremiumRule>
+
+  <!--TravelPeriod -->
+  <PremiumRule>
+    <PremiumBasis Min ="1" Max ="7">TravelPeriod</PremiumBasis>
+    <Rating>0.5</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Min ="8" Max ="14">TravelPeriod</PremiumBasis>
+    <Rating>0.9</Rating>
+  </PremiumRule>
+  <PremiumRule>
+    <PremiumBasis Min ="15" Max ="30">TravelPeriod</PremiumBasis>
+    <Rating>1.2</Rating>
+  </PremiumRule>
+</PremiumRules>
