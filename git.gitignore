@@ -1,4 +1,3 @@
-# a comment - this is ignored
 *.pdb       # no .pdb files
 /TODO     # only ignore the root TODO file, not subdir/TODO
 bin/    # ignore all files in the bin/ directory

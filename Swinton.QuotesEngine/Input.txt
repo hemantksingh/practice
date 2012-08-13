@@ -1,0 +1,5 @@
+﻿Type:SingleTrip
+Age:20
+Sex:Male
+Destination:UK
+PeriodOfTravel:10

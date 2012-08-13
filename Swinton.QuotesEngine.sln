@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swinton.QuotesEngine", "Swinton.QuotesEngine\Swinton.QuotesEngine.csproj", "{28DA15C2-933C-4991-81C0-04997F1E285E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swinton.QuotesEngine.UI", "Swinton.QuotesEngine.UI\Swinton.QuotesEngine.UI.csproj", "{BDE90273-694A-4B25-8DED-70FF78B013A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28DA15C2-933C-4991-81C0-04997F1E285E}.Debug|x86.ActiveCfg = Debug|x86
+		{28DA15C2-933C-4991-81C0-04997F1E285E}.Debug|x86.Build.0 = Debug|x86
+		{28DA15C2-933C-4991-81C0-04997F1E285E}.Release|x86.ActiveCfg = Release|x86
+		{28DA15C2-933C-4991-81C0-04997F1E285E}.Release|x86.Build.0 = Release|x86
+		{BDE90273-694A-4B25-8DED-70FF78B013A1}.Debug|x86.ActiveCfg = Debug|x86
+		{BDE90273-694A-4B25-8DED-70FF78B013A1}.Debug|x86.Build.0 = Debug|x86
+		{BDE90273-694A-4B25-8DED-70FF78B013A1}.Release|x86.ActiveCfg = Release|x86
+		{BDE90273-694A-4B25-8DED-70FF78B013A1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
