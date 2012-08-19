@@ -4,3 +4,10 @@ obj
 
 # mstest test results
 TestResults
+
+# no .pdb files
+*.pdb
+       
+# no .suo or .user files - VS user preference configs, specific to your machine
+*.suo
+*.user
