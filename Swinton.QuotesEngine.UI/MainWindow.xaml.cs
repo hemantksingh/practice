@@ -26,7 +26,7 @@ namespace Swinton.QuotesEngine.UI
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            StatementParser parser = new StatementParser(new TextInput(new List<string> {
+            ILanguageTranslator translator = new LanguageTranslator(new TextInput(new List<string> {
                 "select column1",
                 "from",
                 "#if(VariableA = Case1)",
@@ -41,6 +41,8 @@ namespace Swinton.QuotesEngine.UI
                 "    defaultTable",
                 "#end"
             }));
+            
+            StatementParser parser = new StatementParser(translator);
 
             parser.Parse();
         }
