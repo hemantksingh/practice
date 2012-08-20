@@ -11,3 +11,6 @@ TestResults
 # no .suo or .user files - VS user preference configs, specific to your machine
 *.suo
 *.user
+
+# no Resharper files
+*_ReSharper

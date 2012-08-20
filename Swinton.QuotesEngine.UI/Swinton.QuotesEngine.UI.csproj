@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ITextInput.cs" />
+    <Compile Include="TextInput.cs" />
     <Compile Include="LanguageTranslator.cs" />
     <Compile Include="StatementParser.cs" />
     <Page Include="MainWindow.xaml">

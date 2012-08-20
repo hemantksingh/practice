@@ -17,8 +17,7 @@ namespace Swinton.QuotesEngine.UI
     {
         private List<string> _input;
 
-        int _currentLineIndex = 0;
-        
+        int _currentLineIndex;
         
         public TextInput(List<string> input)
         {
