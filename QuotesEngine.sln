@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swinton.QuotesEngine", "Swinton.QuotesEngine\Swinton.QuotesEngine.csproj", "{28DA15C2-933C-4991-81C0-04997F1E285E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotesEngine", "QuotesEngine\QuotesEngine.csproj", "{28DA15C2-933C-4991-81C0-04997F1E285E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swinton.QuotesEngine.UI", "Swinton.QuotesEngine.UI\Swinton.QuotesEngine.UI.csproj", "{BDE90273-694A-4B25-8DED-70FF78B013A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotesEngine.UI", "QuotesEngine.UI\QuotesEngine.UI.csproj", "{BDE90273-694A-4B25-8DED-70FF78B013A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

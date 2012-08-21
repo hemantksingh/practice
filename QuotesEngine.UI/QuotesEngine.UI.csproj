@@ -8,8 +8,8 @@
     <ProjectGuid>{BDE90273-694A-4B25-8DED-70FF78B013A1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Swinton.QuotesEngine.UI</RootNamespace>
-    <AssemblyName>Swinton.QuotesEngine.UI</AssemblyName>
+    <RootNamespace>QuotesEngine.UI</RootNamespace>
+    <AssemblyName>QuotesEngine.UI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
