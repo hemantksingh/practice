@@ -2,6 +2,9 @@
 bin
 obj
 
+# no Resharper files
+_ReSharper.Swinton.QuotesEngine
+
 # mstest test results
 TestResults
 
@@ -12,5 +15,4 @@ TestResults
 *.suo
 *.user
 
-# no Resharper files
-*_ReSharper
+*.StyleCop

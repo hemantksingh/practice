@@ -10,16 +10,19 @@ namespace Swinton.QuotesEngine.UI
     class StatementParser
     {
         // Simulates variables used in conditions
-        Dictionary<string, string> _variableValues = new Dictionary<string, string> { 
-            { "VariableA", "Case1" },
-            { "VariableB", "CaseX" }
-        };
+        
 
         private ILanguageTranslator _translator;
 
-        public StatementParser(ILanguageTranslator translator)
+        private readonly Dictionary<string, string> _variableData;
+
+        private StringBuilder _output;
+
+        public StatementParser(ILanguageTranslator translator, Dictionary<string, string> variableData)
         {
             _translator = translator;
+            _variableData = variableData;
+            _output = new StringBuilder();
         }
 
         /// <summary>
@@ -28,17 +31,18 @@ namespace Swinton.QuotesEngine.UI
         /// <param name="line">Line to be written to output</param>
         void Output(string line)
         {
+            _output.AppendLine(line);
             Console.WriteLine(line);
         }
 
         /// <summary>
         /// Starts the parsing process.
         /// </summary>
-        public void Parse()
+        public string Parse()
         {
             // Get first symbol and start parsing
             _translator.GetSymbol();
-            if (LineSequence(true))
+            if (this.IsLineSequence(true))
             {
                 // TODO: OK do something with the processed sql
             }
@@ -46,25 +50,30 @@ namespace Swinton.QuotesEngine.UI
             {
                 Output("*** ABORTED ***");
             }
+
+            ICondition condition = new IsEqualTo<string>("2", "2");
+            condition.IsSatisfied();
+
+            return _output.ToString();
         }
 
         // The following methods parse according the the EBNF syntax.
 
-        bool LineSequence(bool writeOutput)
+        bool IsLineSequence(bool writeOutput)
         {
             // EBNF:  LineSequence = { TextLine | IfStatement }.
             while (_translator.CurrentSymbol == Symbol.Text || _translator.CurrentSymbol == Symbol.NumberIf)
             {
                 if (_translator.CurrentSymbol == Symbol.Text)
                 {
-                    if (!TextLine(writeOutput))
+                    if (!this.IsTextLine(writeOutput))
                     {
                         return false;
                     }
                 }
                 else
                 { // _translator.CurrentSymbol == Symbol.NumberIf
-                    if (!IfStatement(writeOutput))
+                    if (!this.IsIfStatement(writeOutput))
                     {
                         return false;
                     }
@@ -73,7 +82,7 @@ namespace Swinton.QuotesEngine.UI
             return true;
         }
 
-        bool TextLine(bool writeOutput)
+        bool IsTextLine(bool writeOutput)
         {
             // EBNF:  TextLine = <string>.
             if (writeOutput)
@@ -84,11 +93,11 @@ namespace Swinton.QuotesEngine.UI
             return true;
         }
 
-        bool IfStatement(bool writeOutput)
+        bool IsIfStatement(bool writeOutput)
         {
             // EBNF:  IfStatement = IfLine LineSequence { ElseIfLine LineSequence } [ ElseLine LineSequence ] EndLine.
             bool result;
-            if (IfLine(out result) && LineSequence(writeOutput && result))
+            if (IfLine(out result) && this.IsLineSequence(writeOutput && result))
             {
                 writeOutput &= !result; // Only one section can produce an output.
                 while (_translator.CurrentSymbol == Symbol.NumberElse)
@@ -100,7 +109,7 @@ namespace Swinton.QuotesEngine.UI
                         {
                             return false;
                         }
-                        if (!LineSequence(writeOutput && result))
+                        if (!this.IsLineSequence(writeOutput && result))
                         {
                             return false;
                         }
@@ -108,7 +117,7 @@ namespace Swinton.QuotesEngine.UI
                     }
                     else
                     { // We have a simple #else
-                        if (!LineSequence(writeOutput))
+                        if (!this.IsLineSequence(writeOutput))
                         {
                             return false;
                         }
@@ -137,7 +146,7 @@ namespace Swinton.QuotesEngine.UI
                 return false;
             }
             _translator.GetSymbol();
-            if (!Condition(out result))
+            if (!this.IsCondition(out result))
             {
                 return false;
             }
@@ -150,7 +159,7 @@ namespace Swinton.QuotesEngine.UI
             return true;
         }
 
-        private bool Condition(out bool result)
+        private bool IsCondition(out bool result)
         {
             // EBNF:  Condition = Identifier "=" Identifier.
             string variable;
@@ -180,7 +189,7 @@ namespace Swinton.QuotesEngine.UI
             expectedValue = _translator.IdentifierOrText;  // The second identifier is a value.
 
             // Search the variable
-            if (_variableValues.TryGetValue(variable, out variableValue))
+            if (_variableData.TryGetValue(variable, out variableValue))
             {
                 result = variableValue == expectedValue; // Perform the comparison.
             }
@@ -205,7 +214,7 @@ namespace Swinton.QuotesEngine.UI
                 return false;
             }
             _translator.GetSymbol();
-            if (!Condition(out result))
+            if (!this.IsCondition(out result))
             {
                 return false;
             }

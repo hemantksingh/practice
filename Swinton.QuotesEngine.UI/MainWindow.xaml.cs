@@ -26,6 +26,12 @@ namespace Swinton.QuotesEngine.UI
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            var variableValues = new Dictionary<string, string>
+                {
+                    { "VariableA", "Case5" },
+                    { "VariableB", "CaseX" }
+                };
+
             ILanguageTranslator translator = new LanguageTranslator(new TextInput(new List<string> {
                 "select column1",
                 "from",
@@ -41,10 +47,10 @@ namespace Swinton.QuotesEngine.UI
                 "    defaultTable",
                 "#end"
             }));
-            
-            StatementParser parser = new StatementParser(translator);
 
-            parser.Parse();
+            var parser = new StatementParser(translator, variableValues);
+
+            MessageBox.Show(parser.Parse());
         }
     }
 }
