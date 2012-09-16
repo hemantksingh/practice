@@ -3,34 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Swinton.QuotesEngine.UI
+namespace DecisionEvaluator
 {
-    public interface ITextInput
+    public class TextReader : ITextReader
     {
-        int CurrentLineNo { get; }
-        string CurrentLine { get; }
-        string GetLine();
-        void Clear();
-    }
-
-    public class TextInput : ITextInput
-    {
-        private List<string> _input;
+        private string[] _input;
 
         int _currentLineIndex;
         
-        public TextInput(List<string> input)
+        public TextReader(string inputTxt)
         {
-            _input = input;
+            _input = inputTxt.Split(Environment.NewLine.ToCharArray(),
+                StringSplitOptions.RemoveEmptyEntries);
         }
 
         public int CurrentLineNo { get; private set; }
         public string CurrentLine { get; private set; }
 
 
-        public string GetLine()
+        public string ReadLine()
         {
-            if (_currentLineIndex >= _input.Count)
+            if (_currentLineIndex >= _input.Length)
             {
                 return null;
             }
@@ -41,7 +34,7 @@ namespace Swinton.QuotesEngine.UI
 
         public void Clear()
         {
-            _input.Clear();
+            Array.Clear(_input, 0, _input.Length);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Swinton.QuotesEngine.UI
+namespace DecisionEvaluator
 {
     class IsEqualTo<T> : ICondition where T : class
     {

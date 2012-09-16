@@ -1,0 +1,13 @@
+﻿select column1
+	from
+		#if(VariableA = Case1)
+				#if(VariableB = Case3)
+					table3
+                #else
+					table4
+                #end
+                #else if(VariableA = Case2)
+					table2
+                #else
+					defaultTable
+        #end

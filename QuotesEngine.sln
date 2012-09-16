@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotesEngine", "QuotesEngin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotesEngine.UI", "QuotesEngine.UI\QuotesEngine.UI.csproj", "{BDE90273-694A-4B25-8DED-70FF78B013A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecisionEvaluator", "DecisionEvaluator\DecisionEvaluator.csproj", "{AF97D5C8-7C16-4322-9459-3D77C828896A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{BDE90273-694A-4B25-8DED-70FF78B013A1}.Debug|x86.Build.0 = Debug|x86
 		{BDE90273-694A-4B25-8DED-70FF78B013A1}.Release|x86.ActiveCfg = Release|x86
 		{BDE90273-694A-4B25-8DED-70FF78B013A1}.Release|x86.Build.0 = Release|x86
+		{AF97D5C8-7C16-4322-9459-3D77C828896A}.Debug|x86.ActiveCfg = Debug|x86
+		{AF97D5C8-7C16-4322-9459-3D77C828896A}.Debug|x86.Build.0 = Debug|x86
+		{AF97D5C8-7C16-4322-9459-3D77C828896A}.Release|x86.ActiveCfg = Release|x86
+		{AF97D5C8-7C16-4322-9459-3D77C828896A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

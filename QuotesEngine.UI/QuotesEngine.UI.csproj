@@ -55,12 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ContitionType.cs" />
-    <Compile Include="ICondition.cs" />
-    <Compile Include="IsEqualTo.cs" />
-    <Compile Include="TextInput.cs" />
-    <Compile Include="LanguageTranslator.cs" />
-    <Compile Include="StatementParser.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,7 +71,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

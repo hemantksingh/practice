@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows;
 using System.Collections;
+using System.Windows;
+using System.Windows.Forms;
 
-namespace Swinton.QuotesEngine.UI
+namespace DecisionEvaluator
 {
     public enum Symbol
     {
@@ -22,22 +23,14 @@ namespace Swinton.QuotesEngine.UI
         Identifier
     }
 
-    public interface ILanguageTranslator
-    {
-        Symbol CurrentSymbol { get; }
-        string IdentifierOrText { get; }
-        
-        void GetSymbol();
-        void Error(string message, params  object[] args);
-    }
+   
 
     public class LanguageTranslator : ILanguageTranslator
     {
-        private ITextInput _input;
+        private ITextReader _input;
         private Queue<string> _textQueue;
 
-
-        public LanguageTranslator(ITextInput input)
+        public LanguageTranslator(ITextReader input)
         {
             _input = input;
             _textQueue = new Queue<string>();
@@ -75,7 +68,7 @@ namespace Swinton.QuotesEngine.UI
             }
 
             // Get next line from input.
-            s = _input.GetLine();
+            s = _input.ReadLine();
             if (s == null)
             {
                 CurrentSymbol = Symbol.None;

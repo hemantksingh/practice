@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows;
+using DecisionEvaluator;
 
-namespace Swinton.QuotesEngine.UI
+namespace DecisionEvaluator
 {
     class StatementParser
     {
-        // Simulates variables used in conditions
-        
-
         private ILanguageTranslator _translator;
-
         private readonly Dictionary<string, string> _variableData;
-
         private StringBuilder _output;
 
         public StatementParser(ILanguageTranslator translator, Dictionary<string, string> variableData)
@@ -191,7 +186,8 @@ namespace Swinton.QuotesEngine.UI
             // Search the variable
             if (_variableData.TryGetValue(variable, out variableValue))
             {
-                result = variableValue == expectedValue; // Perform the comparison.
+                //result = variableValue == expectedValue; // Perform the comparison.
+                result = Evaluate<string>(variableValue, expectedValue, (x, y) => x == y);
             }
             else
             {
@@ -201,6 +197,11 @@ namespace Swinton.QuotesEngine.UI
 
             _translator.GetSymbol();
             return true;
+        }
+
+        static bool Evaluate<T>(T a, T y, Func<T, T, bool> function)
+        {
+            return function.Invoke(a, y);
         }
 
         bool ElseIfLine(out bool result)
